@@ -51,6 +51,7 @@ router.get('/store/edit/:id', async (req, res) => {
 router.put('/store/edit-product/:id', async (req, res) => {
     const {title, description} = req.body;
     await Product.findByIdAndUpdate(req.params.id, {title, description});
+    req.flash('success_msg', 'Product Updated Successfully');
     res.redirect('/store/products');
 });
 
