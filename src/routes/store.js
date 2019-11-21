@@ -34,6 +34,7 @@ router.post('/store/new-product', isAuthenticated, async (req, res) => {
     else
     {
         const newProduct = new Product({title, description});
+        newProduct.user = req.user.id;
         await newProduct.save();
         req.flash('success_msg', 'Product Added Successfully');
         res.redirect('/store/products');
@@ -41,7 +42,7 @@ router.post('/store/new-product', isAuthenticated, async (req, res) => {
 });
 
 router.get('/store/products', isAuthenticated, async (req, res) => {
-    const products = await Product.find().sort({date: 'desc'});
+    const products = await Product.find({user: req.user.id}).sort({date: 'desc'});
     res.render('store/all-products', {products});
 });
 
