@@ -6,7 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 
-let DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost/petsDB";
+let DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost/becomemty-db";
 let PORT = process.env.PORT || 8080;
 
 //Initializations
