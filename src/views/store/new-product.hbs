@@ -6,7 +6,20 @@
         <div class="card-body">
             <form action="/store/new-product" method="POST">
                 <div class="form-group">
-                    <input type="text" name="title" class="form-control" placeholder="Title" autofocus>                    
+                    <input type="text" name="title" class="form-control" placeholder="Name" autofocus>                    
+                </div>
+                <div class="form-group">
+                    <select id="dropdown" class="form-control" onchange="getSelectedValue();" name="typeOfProduct">
+                        <option value="Pencil">Pencil</option>
+                        <option value="Wooden notebook">Wooden notebook</option>
+                        <option value="Cardboard notebook">Cardboard notebook</option>
+                    </select>              
+                </div>
+                <div class="form-group">
+                    <input type="text" name="price" class="form-control" placeholder="Price">        
+                </div>
+                <div class="form-group">
+                    <input type="text" name="inStock" class="form-control" placeholder="# In Stock">        
                 </div>
                 <div class="form-group">
                     <textarea name="description" class="form-control" placeholder="Description"></textarea>
@@ -20,3 +33,10 @@
         </div>
     </div>
 </div>
+<script>
+    function getSelectedValue()
+    {        
+        //var sValue = document.getElementById("dropdown").value;
+        document.getElementsByName("typeOfProduct").value = document.getElementById("dropdown").value;
+    }
+</script>

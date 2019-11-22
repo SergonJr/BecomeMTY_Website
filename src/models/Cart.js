@@ -1,5 +1,9 @@
 //CART
 
+const mongoose = require('mongoose');
+const {Schema} = mongoose;
+
+
 /*
     ID
     ARRAY OF PRODUCTS = PRODUCT, CANTIDAD
@@ -9,5 +13,13 @@
     TOTAL PRICE
 */
 
+const CartSchema = new Schema({
+    idProduct: {type: String},
+    date: {type: Date, default: Date.now},
+    quantity: {type: Number, default: '1'},
+    custom: {type: Boolean, default: true},
+    idUser: {type: String}
+});
 
+module.exports = mongoose.model('Cart', CartSchema);
 

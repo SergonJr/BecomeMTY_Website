@@ -1,0 +1,38 @@
+<nav class="navbar fixed-top navbar-dark navbar-expand-md bg-success text-white">
+        <a class="text-white navbar-brand" href="/">
+            <i class="fab fa-pagelines"></i> Organic Store
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto menu">
+                <li class="navbar-nav mr-auto menu">
+                    <a href="/admin" class="nav-link">View Orders</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div class="container mt-5 mb-3">
+        <div class="row">
+            <div class="col">
+                <form action="/order" class="border border-warning p-3" method="POST" autocomplete="off">
+                <input type="hidden" name="_id" value="{{order.id}}">
+                <div class="form-group">
+                    <label for="">Order</label>
+                    <input class="form-control" type="text" name="order" placeholder="Order" value="{{order.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="">Total</label>
+                    <input class="form-control" type="text" name="total" placeholder="Total" value="{{order.total}}">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>

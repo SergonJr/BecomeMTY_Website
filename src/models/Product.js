@@ -20,7 +20,9 @@ const ProductSchema = new Schema({
     title: {type: String, required: true},
     description: {type: String, required: true},
     date: {type: Date, default: Date.now},
-    user: {type: String}
+    price: {type: Number, default: '0'},
+    inStock: {type: Number, default: '0'},
+    typeOfProduct: {type: String, default: "Pencil"}
 });
 
 module.exports = mongoose.model('Product', ProductSchema);

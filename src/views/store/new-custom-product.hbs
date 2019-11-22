@@ -1,0 +1,45 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>New Custom Notebook</h3>
+        </div>
+        <div class="card-body">
+            <form action="/store/add-cn-to-cart" method="POST">                
+                <div class="form-group">
+                    <select id="dropdown" class="form-control" onchange="updatePrice();" name="nPages">
+                        <option value=110>50 sheets</option>
+                        <option value=140>70 sheets</option>
+                        <option value=180>100 sheets</option>
+                        <option value=210>130 sheets</option>
+                    </select>              
+                </div>     
+                <div class="form-group">
+                    <select id="dropdown" class="form-control" name="typeOfThread">
+                        <option value="Red">Red</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                    </select>              
+                </div>             
+                <div class="form-group">
+                    <textarea name="description" class="form-control" placeholder="Description"></textarea>
+                </div>
+                <p id="priceN">Price = $110 M.N.</p>
+                <div class="form-group">
+                    <input type="text" name="price" class="form-control" value=110 hidden></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Order
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function updatePrice()
+    {        
+        document.getElementById("priceN").textContent = "Price = $" + document.getElementById("dropdown").value + " M.N.";
+        document.getElementsByName("price").value = document.getElementById("dropdown").value;
+    }
+</script>

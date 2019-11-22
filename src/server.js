@@ -43,6 +43,14 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     res.locals.user = req.user || null;
+    
+    res.locals.admin = null;
+
+    if (req.user)
+    {
+        res.locals.admin = req.user.admin;
+    }
+    
     next();
 });
 
@@ -50,6 +58,8 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'));
 app.use(require('./routes/users'));
 app.use(require('./routes/store'));
+
+app.use(require('./routes/order'));
 
 //Static Files
 app.use(express.static(path.join(__dirname, 'public')));

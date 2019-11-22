@@ -1,4 +1,5 @@
-//ORDENES
+const mongoose = require('mongoose');
+const {Schema} = mongoose;
 
 /*
     ID
@@ -18,3 +19,13 @@
     ADMIN CAN DELETE ORDER BEFORE AND AFTER IT IS PAYED
     USER CAN DELETE ORDER BEFORE IT IS PAYED
 */
+
+const OrderSchema = new Schema({
+    status: {type: String, default: "NOT PAYED"},
+    cCard: {type: String},
+    date: {type: Date, default: Date.now},
+    idCart: {type: String},
+    total:{type: String}
+});
+
+module.exports = mongoose.model('Order', OrderSchema);

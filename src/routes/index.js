@@ -2,7 +2,9 @@ const express= require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    //Changed for eCommerce
     res.render('index');
+    //res.render('menu');
 });
 
 router.get('/about', (req, res) => {
