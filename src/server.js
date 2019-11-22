@@ -5,6 +5,7 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+let mongoose = require('mongoose');
 
 let DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost/becomemty-db";
 let PORT = process.env.PORT || 8080;
